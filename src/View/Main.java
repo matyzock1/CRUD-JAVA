@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import static Controller.ActualizarProducto.actualizarProducto;
 import static Controller.AgregarProducto.addProducto;
+import static Controller.EliminarProducto.eliminarProducto;
 
 public class Main {
     public static final List<Producto> productos = new ArrayList<Model.Producto>();
@@ -36,7 +37,6 @@ public class Main {
                 System.out.println("Desea volver al menú de opciones?(Y/N): ");
                 scanner.nextLine();
                 String continuar = scanner.nextLine();
-                System.out.println("continuar = " + continuar);
 
                 if (!continuar.equals("y")){
                     opciones = false;
@@ -47,15 +47,19 @@ public class Main {
                 System.out.println("Desea volver al menú de opciones?(Y/N): ");
                 scanner.nextLine();
                 String continuar = scanner.nextLine();
-                System.out.println("continuar = " + continuar);
 
                 if (!continuar.equals("y")){
                     opciones = false;
                 }
 
-
             } else if (opcion == 3) {
-                System.out.println("Eliminando");
+                eliminarProducto(scanner);
+                System.out.println("Desea volver al menú de opciones?(Y/N): ");
+                scanner.nextLine();
+                String continuar = scanner.nextLine();
+                if (!continuar.equals("y")){
+                    opciones = false;
+                }
             } else if (opcion == 4) {
                 System.out.println("Mostrando");
             }
