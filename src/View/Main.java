@@ -1,14 +1,54 @@
 package View;
 
+import Model.Producto;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
+
+import static Controller.AgregarProducto.addProducto;
+
 public class Main {
+    public static final List<Producto> productos = new ArrayList<Model.Producto>();
+    private static int Id = 1;
     public static void main(String[] args) {
-        System.out.println("pico");
+        Scanner scanner = new Scanner(System.in);
 
-        int a = 20, b = 10;
+        int opcion;
+        boolean opciones = true;
 
-        int suma = a + b;
+        while(opciones) {
+            System.out.println("--------CRUD----------");
+            System.out.println("Opción 1: Agregar Producto\n");
+            System.out.println("Opción 2: Actualizar Producto\n");
+            System.out.println("Opción 3: Eliminar Producto\n");
+            System.out.println("Opción 4: Mostrar Producto\n");
 
-        System.out.println("suma = " + suma);
+
+            opcion = scanner.nextInt();
+            scanner.nextLine();
+
+            if (opcion == 1) {
+                addProducto(scanner, Id);
+                Id++;
+                System.out.println("Desea volver al menú de opciones?(Y/N): ");
+                scanner.nextLine();
+                String continuar = scanner.nextLine();
+                System.out.println("continuar = " + continuar);
+
+                if (!continuar.equals("y")){
+                    opciones = false;
+                }
+
+            } else if (opcion == 2) {
+                System.out.println("Actualizando");
+            } else if (opcion == 3) {
+                System.out.println("Eliminando");
+            } else if (opcion == 4) {
+                System.out.println("Mostrando");
+            }
+        }
 
     }
 }
