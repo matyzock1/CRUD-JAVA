@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+import static Controller.ActualizarProducto.actualizarProducto;
 import static Controller.AgregarProducto.addProducto;
 
 public class Main {
@@ -42,7 +43,17 @@ public class Main {
                 }
 
             } else if (opcion == 2) {
-                System.out.println("Actualizando");
+                actualizarProducto(scanner);
+                System.out.println("Desea volver al menú de opciones?(Y/N): ");
+                scanner.nextLine();
+                String continuar = scanner.nextLine();
+                System.out.println("continuar = " + continuar);
+
+                if (!continuar.equals("y")){
+                    opciones = false;
+                }
+
+
             } else if (opcion == 3) {
                 System.out.println("Eliminando");
             } else if (opcion == 4) {
