@@ -10,6 +10,7 @@ import java.util.Scanner;
 import static Controller.ActualizarProducto.actualizarProducto;
 import static Controller.AgregarProducto.addProducto;
 import static Controller.EliminarProducto.eliminarProducto;
+import static Controller.MostrarProductos.mostrarProductos;
 
 public class Main {
     public static final List<Producto> productos = new ArrayList<Model.Producto>();
@@ -61,7 +62,14 @@ public class Main {
                     opciones = false;
                 }
             } else if (opcion == 4) {
-                System.out.println("Mostrando");
+
+                mostrarProductos();
+                System.out.println("Desea volver al menú de opciones?(Y/N): ");
+                scanner.nextLine();
+                String continuar = scanner.nextLine();
+                if (!continuar.equals("y")){
+                    opciones = false;
+                }
             }
         }
 
