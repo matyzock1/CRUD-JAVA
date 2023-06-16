@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ConexionSQLServer;
 import Model.Producto;
 
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ public class Main {
     public static final List<Producto> productos = new ArrayList<Model.Producto>();
     private static int Id = 1;
     public static void main(String[] args) {
+        ConexionSQLServer objetoconection = new ConexionSQLServer();
+        objetoconection.establecerConexion();
         Scanner scanner = new Scanner(System.in);
 
         int opcion;

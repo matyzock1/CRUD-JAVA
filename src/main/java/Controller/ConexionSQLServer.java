@@ -13,12 +13,12 @@ public class ConexionSQLServer {
     String ip = "localhost";
     String puerto = "1433";
 
-    String cadena = "jdbc:sqlserver://"+ip+":"+puerto+"/"+bd;
+    String cadena2 = "jdbc:sqlserver://localhost:1433;databaseName=MarketEjemplo";
 
     public Connection establecerConexion(){
         try {
-            String cadena = "jdbc:sqlserver://localhost:"+puerto+":"+"databaseName="+bd;
-            conectar= DriverManager.getConnection(cadena,usuario,contrasenia);
+            String cadena2 = "jdbc:sqlserver://localhost:1433;databaseName=MarketEjemplo;encrypt=false;integratedSecurity=false";
+            conectar= DriverManager.getConnection(cadena2,usuario,contrasenia);
             JOptionPane.showMessageDialog(null, "Conexion exitosa a la base de datos");
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Error al conectar a la bdd, el error es: "+ e.toString());
