@@ -21,10 +21,8 @@ public class AgregarProducto {
             declaracion.setString(1, nombre);
             declaracion.setInt(2, precio);
             declaracion.executeUpdate();
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        scanner.close();
     }
 }
