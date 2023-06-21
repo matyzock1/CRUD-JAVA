@@ -65,9 +65,8 @@ public class Main {
                 }
             } else if (opcion == 4) {
 
-                mostrarProductos();
+                mostrarProductos(resultado);
                 System.out.println("Desea volver al menú de opciones?(Y/N): ");
-                scanner.nextLine();
                 String continuar = scanner.nextLine();
                 if (!continuar.equals("y")){
                     opciones = false;
