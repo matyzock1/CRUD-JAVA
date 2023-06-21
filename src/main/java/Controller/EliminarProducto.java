@@ -2,32 +2,34 @@ package Controller;
 
 import Model.Producto;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import static View.Main.productos;
 
 public class EliminarProducto {
-    public static void eliminarProducto(Scanner scanner){
+    public static void eliminarProducto(Scanner scanner, Connection connection){
 
         System.out.println("Ingrese ID a eliminar");
         int id = scanner.nextInt();
-        boolean existe = false;
 
-        for (Producto producto : productos){
-            if (producto.getId() == id){
-                String productoBorrado = producto.getNombre();
-                productos.remove(producto);
-                System.out.println("El producto "+ productoBorrado + " fue borrado con éxito.");
-                existe = true;
-                break;
+        try (connection){
+            String consulta = "DELETE FROM Productos WHERE id = ?";
+            PreparedStatement declaracion = connection.prepareStatement(consulta);
+            declaracion.setInt(1, id);
+            int filasAfectadas = declaracion.executeUpdate();
+
+            if(filasAfectadas > 0){
+                System.out.println("Producto borrado correctamente");
+            }
+            else{
+                System.out.println("El id no corresponde.");
             }
         }
-        if(existe){
-            System.out.println("Producto eliminado correctamente.");
-        }
-        else{
-            System.out.println("Producto no encontrado");
-            //falta habilitar posibilidad de volver a ingresar el id
+        catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

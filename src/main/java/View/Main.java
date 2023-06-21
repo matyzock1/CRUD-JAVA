@@ -3,6 +3,7 @@ package View;
 import Controller.ConexionSQLServer;
 import Model.Producto;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,11 +16,11 @@ import static Controller.MostrarProductos.mostrarProductos;
 
 public class Main {
     public static final List<Producto> productos = new ArrayList<Model.Producto>();
-    private static int Id = 1;
     public static void main(String[] args) {
-        ConexionSQLServer objetoconection = new ConexionSQLServer();
-        objetoconection.establecerConexion();
         Scanner scanner = new Scanner(System.in);
+
+        ConexionSQLServer connection = new ConexionSQLServer();
+        Connection resultado = connection.establecerConexion();
 
         int opcion;
         boolean opciones = true;
@@ -36,8 +37,7 @@ public class Main {
             scanner.nextLine();
 
             if (opcion == 1) {
-                addProducto(scanner, Id);
-                Id++;
+                addProducto(scanner, resultado);
                 System.out.println("Desea volver al menú de opciones?(Y/N): ");
                 scanner.nextLine();
                 String continuar = scanner.nextLine();
@@ -57,7 +57,7 @@ public class Main {
                 }
 
             } else if (opcion == 3) {
-                eliminarProducto(scanner);
+                eliminarProducto(scanner, resultado);
                 System.out.println("Desea volver al menú de opciones?(Y/N): ");
                 scanner.nextLine();
                 String continuar = scanner.nextLine();

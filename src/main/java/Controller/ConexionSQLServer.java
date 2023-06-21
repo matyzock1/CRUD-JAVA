@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class ConexionSQLServer {
-    Connection conectar = null;
+    static Connection conectar = null;
 
     String usuario = "jeanSQL";
     String contrasenia = "123";
