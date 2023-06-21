@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Producto;
 
+import java.sql.Statement;
 import java.util.Scanner;
 
 import static View.Main.productos;
@@ -14,6 +15,7 @@ public class ActualizarProducto {
         boolean existe = false;
 
         for(int i = 0; i <= productos.size()-1; i++){
+
             int productoIdObtenido = productos.get(i).getId();
             if(productoIdObtenido == id){
                 existe = true;
