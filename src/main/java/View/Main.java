@@ -6,7 +6,6 @@ import Model.Producto;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 import static Controller.ActualizarProducto.actualizarProducto;
@@ -73,6 +72,6 @@ public class Main {
                 }
             }
         }
-
+        scanner.close();
     }
 }

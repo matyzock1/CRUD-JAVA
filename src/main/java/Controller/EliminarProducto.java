@@ -1,13 +1,9 @@
 package Controller;
 
-import Model.Producto;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
-
-import static View.Main.productos;
 
 public class EliminarProducto {
     public static void eliminarProducto(Scanner scanner, Connection connection){

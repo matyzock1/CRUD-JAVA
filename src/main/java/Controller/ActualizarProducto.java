@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class ActualizarProducto {
     public static void actualizarProducto(Scanner scanner, Connection con){
-        scanner = new Scanner(System.in);
-
+        
         System.out.println("Ingrese el ID del producto a actualizar:");
         int idProducto = scanner.nextInt();
         scanner.nextLine();

@@ -1,7 +1,5 @@
 package Controller;
 
-import Model.Producto;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.*;
